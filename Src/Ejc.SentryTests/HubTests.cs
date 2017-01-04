@@ -6,13 +6,18 @@ namespace Ejc.SentryTests
     [TestClass]
     public class HubTests
     {
+        /// <summary>
+        /// Start by trying the following naming convention.
+        /// 
+        /// Naming Convention: Method_Expectation.
+        /// </summary>
         [TestMethod]
-        public void Create_Hub()
+        public void Create_NoListenersRegistered()
         {
             // Act.
             var hub = new Hub();
             // Assert.
-            Assert.AreNotEqual(null, hub);
+            Assert.AreEqual(false, hub.IsRegistered(new object()));
         }
 
         /// <summary>

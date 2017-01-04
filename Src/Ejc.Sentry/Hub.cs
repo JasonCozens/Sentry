@@ -2,13 +2,16 @@
 {
     public class Hub
     {
+        private object _listener;
+
         public void Register(object listener)
         {
+            _listener = listener;
         }
 
         public bool IsRegistered(object listener)
         {
-            return true;
+            return _listener != null;
         }
     }
 }
