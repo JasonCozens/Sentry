@@ -18,3 +18,5 @@ Listeners can be unregistered from the hub.
 A listerner raises events on the IListener interface.
 
 NOTE: The initial version of these notes will use MSTest as thisis in use where the notes will be used.
+
+In this first part we want to make sure there is only one instance of each listener added so that we don't get duplicate log messages.
