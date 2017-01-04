@@ -13,5 +13,10 @@
         {
             return _listener != null;
         }
+
+        public void Unregister(object listener)
+        {
+            _listener = null;
+        }
     }
 }
