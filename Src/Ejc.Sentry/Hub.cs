@@ -1,22 +1,29 @@
-﻿namespace Ejc.Sentry
+﻿using System.Collections.Generic;
+
+namespace Ejc.Sentry
 {
     public class Hub
     {
-        private object _listener;
+        private readonly List<object> _listeners;
+
+        public Hub()
+        {
+            _listeners = new List<object>();
+        }
 
         public void Register(object listener)
         {
-            _listener = listener;
+            _listeners.Add(listener);
         }
 
         public bool IsRegistered(object listener)
         {
-            return _listener != null;
+            return _listeners.Contains(listener);
         }
 
         public void Unregister(object listener)
         {
-            _listener = null;
+            _listeners.Remove(listener);
         }
     }
 }

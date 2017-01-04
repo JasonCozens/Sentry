@@ -49,5 +49,19 @@ namespace Ejc.SentryTests
             // Assert.
             Assert.AreEqual(false, hub.IsRegistered(listener));
         }
+
+        [TestMethod]
+        public void Register_OneListener_SecondListenerIsNotRegistered()
+        {
+            // Arrange.
+            var hub = new Hub();
+            var listener1 = new object();
+            var listener2 = new object();
+            // Act.
+            hub.Register(listener1);
+            // Assert.
+            Assert.AreEqual(true, hub.IsRegistered(listener1));
+            Assert.AreEqual(false, hub.IsRegistered(listener2));
+        }
     }
 }
