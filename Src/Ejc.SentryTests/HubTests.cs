@@ -1,5 +1,7 @@
-﻿using Ejc.Sentry;
+﻿using System;
+using Ejc.Sentry;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MSTestExtensions;
 
 namespace Ejc.SentryTests
 {
@@ -60,8 +62,20 @@ namespace Ejc.SentryTests
             // Act.
             hub.Register(listener1);
             // Assert.
-            Assert.AreEqual(true, hub.IsRegistered(listener1));
-            Assert.AreEqual(false, hub.IsRegistered(listener2));
+           Assert.AreEqual(true, hub.IsRegistered(listener1));
+           Assert.AreEqual(false, hub.IsRegistered(listener2));
+        }
+
+
+        [TestMethod]
+        public void Register_SameListenerTwice_ThrowsException()
+        {
+            // Arrange.
+            var hub = new Hub();
+            var listener = new object();
+            hub.Register(listener);
+            // Act.
+            ThrowsAssert.Throws<InvalidOperationException>(() => hub.Register(listener));
         }
     }
 }

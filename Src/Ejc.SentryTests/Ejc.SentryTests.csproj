@@ -49,6 +49,10 @@
       <Project>{3d8a627b-b7d1-4385-9b00-03fc0c4d0565}</Project>
       <Name>Ejc.Sentry</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MSTestExtensions\MSTestExtensions.csproj">
+      <Project>{b886c8f8-1ab6-471e-b216-55166c35284b}</Project>
+      <Name>MSTestExtensions</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

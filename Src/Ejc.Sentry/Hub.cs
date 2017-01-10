@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Ejc.Sentry
 {
@@ -13,6 +14,7 @@ namespace Ejc.Sentry
 
         public void Register(object listener)
         {
+            if (_listeners.Contains(listener)) throw new InvalidOperationException();
             _listeners.Add(listener);
         }
 
